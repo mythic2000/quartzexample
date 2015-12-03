@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
 @Path("/hello")
 public class HelloWorldService {
 	private static Logger _log = LoggerFactory.getLogger(HelloWorldService.class);
-	static Scheduler sched = null;
+	 Scheduler sched = null;
 
 	@GET
 	@Path("/{param}")
@@ -32,6 +32,9 @@ public class HelloWorldService {
 			case 1:
 				this.startQuartz();
 				break;
+			case 2:
+				this.pauseJob();
+				break;
 		}
 
 		String output = "Jersey say : " + msg;
@@ -40,6 +43,7 @@ public class HelloWorldService {
 	}
 
 	public void startQuartz() throws Exception {
+		sched = null;
 		JobDetail job = newJob(HelloJob.class).withIdentity("job1", "group1")
 				.build();
 
@@ -76,6 +80,16 @@ public class HelloWorldService {
 		}else {
 			sched.shutdown(false);
 			sched = null;
+			_log.info("sched shut down");
+		}
+	}
+	
+	public void pauseJob() throws SchedulerException {
+		if (null == sched) {
+			_log.info("sched is null");
+			return;
+		}else {
+			sched.pauseAll();
 			_log.info("sched shut down");
 		}
 	}
