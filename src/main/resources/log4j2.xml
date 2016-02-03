@@ -2,14 +2,14 @@
 <configuration status="OFF">
   <appenders>
     <Console name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <PatternLayout  pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
     </Console>
   </appenders>
   <loggers>
    <logger name="com.webex" level="trace" additivity="false" >
             <appender-ref ref="Console"/>
         </logger>
-     <root level="WARN">
+     <root level="INFO">
       <appender-ref ref="Console"/>
     </root> 
   </loggers>
