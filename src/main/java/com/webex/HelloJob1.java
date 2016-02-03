@@ -45,7 +45,7 @@ public class HelloJob1 implements Job {
         throws JobExecutionException {
 
         // Say Hello to the World and display the date/time
-        _log.info("Hello World xxxx! - " + new Date());
+        _log.info("Hello World 1111! - " + new Date());
     }
 
 }

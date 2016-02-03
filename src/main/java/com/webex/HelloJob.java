@@ -29,6 +29,7 @@ public class HelloJob implements Job {
      * </p>
      */
     public HelloJob() {
+    	 _log.info("job initiate! - ");
     }
 
     /**
