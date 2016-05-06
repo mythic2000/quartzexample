@@ -3,6 +3,9 @@ package com.webex;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Date;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,7 +22,9 @@ public class TestEMSJerseyClient {
 	
 	@Test
 	public void testEmsPost() {
-		emsJerseyClient.emsPost();
+		//emsJerseyClient.emsPost();
+		Date date = new Date();
+		logger.info("time:"+date.getTime());
 	}
 
 }

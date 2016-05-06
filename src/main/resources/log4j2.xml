@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration status="OFF">
+<configuration status="debug">
+    <Properties>
+		<Property name="log-path">/Users/xiaojuwa</Property>
+	</Properties>
   <appenders>
+  		<RollingFile name="file-log" fileName="${log-path}/fraud-info.log"
+			filePattern="${log-path}/fraud-info-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} %l - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
     <Console name="Console" target="SYSTEM_OUT">
       <PatternLayout  pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
     </Console>
   </appenders>
   <loggers>
-   <logger name="com.webex" level="trace" additivity="false" >
+   		<logger name="com.webex" level="trace" additivity="false" >
             <appender-ref ref="Console"/>
         </logger>
-     <root level="INFO">
+     <root level="INFO" additivity="false">
       <appender-ref ref="Console"/>
+      <appender-ref ref="file-log" />
     </root> 
   </loggers>
 </configuration>

@@ -4,8 +4,8 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Base64;
+import org.apache.cactus.ServletTestCase; 
+import org.apache.cactus.WebRequest;
 
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,14 +19,14 @@ public class TestHelloJob {
 	@Test
 	public void testEmsPost() {
 		logger.info("test");
-		try {
-			String userPass = "fraudbts"+":" + "JnVxRXp5d1E2s";
-			String asB64 = Base64.getEncoder()
-					.encodeToString(userPass.getBytes("utf-8"));
-			logger.info("xxx:" + asB64);
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String xx = String.valueOf(1234L);
+		logger.info(xx);
+		
+		String tt = "abcdef";
+		String aa = "cd";
+		
+		if(tt.contains(aa)){
+			logger.info("fadfsas"); 
 		}
 
 	}
