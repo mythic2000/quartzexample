@@ -18,15 +18,10 @@ public class TestHelloJob {
 	private static Logger logger = LoggerFactory.getLogger(TestHelloJob.class);
 	@Test
 	public void testEmsPost() {
-		logger.info("test");
-		String xx = String.valueOf(1234L);
-		logger.info(xx);
-		
-		String tt = "abcdef";
-		String aa = "cd";
-		
-		if(tt.contains(aa)){
-			logger.info("fadfsas"); 
+		String temp = "aaa,bbb";
+		if(temp.contains(",")) {
+			//String conid = temp.split(",");
+			System.out.println(temp.split(",")[0]);
 		}
 
 	}

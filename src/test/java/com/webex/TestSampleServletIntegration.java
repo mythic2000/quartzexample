@@ -28,6 +28,10 @@ public class TestSampleServletIntegration extends ServletTestCase {
 
 	@Test
 	public void testIsAuthenticatedNoSession() {
-		//assertFalse(servlet.isAuthenticated(request));
+		String temp = "aaa,bbb";
+		if(temp.contains(",")) {
+			//String conid = temp.split(",");
+			System.out.println(temp.split(",")[0]);
+		}
 	}
 }
