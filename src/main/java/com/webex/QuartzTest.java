@@ -24,14 +24,14 @@ public class QuartzTest {
 		Scheduler sched = sf.getScheduler();
 		Date startTime = new Date();
 		
-		JobKey jobKey = new JobKey("statefulJob1", "group1");
+		/*JobKey jobKey = new JobKey("statefulJob1", "group1");
 		if(sched.checkExists(jobKey))
 		{
 			sched.deleteJob(jobKey);
-		}
+		}*/
 		
 		JobDetail job = newJob(HelloJob.class)   
-			    .withIdentity("statefulJob1", "group1")
+			    .withIdentity("statefulJob1", "group1").requestRecovery()
 			    .build(); 
 		CronTrigger trigger = newTrigger().withIdentity("trigger1", "group1").withSchedule(cronSchedule("0 0/2 * * * ?"))
 			        .build();
