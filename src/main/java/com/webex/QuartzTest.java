@@ -33,7 +33,7 @@ public class QuartzTest {
 		JobDetail job = newJob(HelloJob.class)   
 			    .withIdentity("statefulJob1", "group1")
 			    .build(); 
-		CronTrigger trigger = newTrigger().withIdentity("trigger1", "group1").withSchedule(cronSchedule("0 0/5 * * * ?"))
+		CronTrigger trigger = newTrigger().withIdentity("trigger1", "group1").withSchedule(cronSchedule("0 0/2 * * * ?"))
 			        .build();
 /*			SimpleTrigger trigger = newTrigger()    
 			    .withIdentity("trigger1", "group1")   
