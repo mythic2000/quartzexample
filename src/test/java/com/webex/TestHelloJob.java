@@ -18,11 +18,8 @@ public class TestHelloJob {
 	private static Logger logger = LoggerFactory.getLogger(TestHelloJob.class);
 	@Test
 	public void testEmsPost() {
-		String temp = "aaa,bbb";
-		if(temp.contains(",")) {
-			//String conid = temp.split(",");
-			System.out.println(temp.split(",")[0]);
-		}
+		String temp = "aaa,\bbb";
+		logger.info(temp.replaceAll("\\", ""));
 
 	}
 }
